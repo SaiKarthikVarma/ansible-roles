@@ -24,11 +24,15 @@
     name: expense
 
 - name: importing task from another role
+  tags:
+    - deployment
   ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req.yaml
 
 - name: install dependencies
+  tags:
+    - deployment
   ansible.builtin.command: npm install
   args:
     chdir: /app
@@ -48,6 +52,8 @@
     state: import
 
 - name: deamon reload
+  tags:
+    - deployment
   ansible.builtin.systemd_service:
     daemon_reload: true
     state: restarted
