@@ -3,6 +3,7 @@
   become: yes #takes sudo access
   vars_files:
     - /var/expense/credentials_mysql.yaml
+  serial: 3
   tasks:
     - name: install nginx
       ansible.builtin.package:
