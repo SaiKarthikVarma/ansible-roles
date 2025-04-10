@@ -1,7 +1,7 @@
 - name: nginx install and run
   hosts: all
   become: yes #takes sudo access
-  var_files:
+  vars_files:
     - /var/expense/credentials_mysql.yaml
   tasks:
     - name: install nginx
